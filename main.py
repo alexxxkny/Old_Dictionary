@@ -21,7 +21,20 @@ while True:
     elif choice == 3:
         console_menu.delete_word(words)
     elif choice == 4:
-        console_menu.test(words)
+        print('Choose mode.\n1 - en -> ru\n2 - ru -> en')
+        lang = 'en'
+        while True:
+            answer = input('Mode: ').strip()
+            if answer == '1':
+                #lang = 'en'
+                break
+            elif answer == '2':
+                lang = 'ru'
+                break
+            else:
+                print('Incorrect input. Try again.')
+        right = console_menu.test_list(words, lang=lang)
+        print('Result: ', right, '/', len(words), sep='')
     else:
         print('Fucking asshole')
 dictionary.save_word_list_to_file(words, 'words.txt')

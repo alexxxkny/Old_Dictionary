@@ -48,3 +48,58 @@ def test(words, random_order=False):
             print('wrong')
 
 
+def test_en_ru(word):
+    remaining_translates = word.translate
+    n = len(remaining_translates)
+    print(word.original)
+    while True:
+        answer = input('Enter translate: ')
+        if answer == '->':
+            print(word)
+            return False
+        answer_set = {word.strip() for word in answer.split(',')}
+        remaining_translates = remaining_translates - answer_set
+        right_word_count = n - len(remaining_translates)
+        if right_word_count == n:
+            print('right')
+            return True
+        else:
+            print(right_word_count, '/', n, sep='')
+
+
+def test_ru_en(word):
+    print(','.join(word.translate))
+    while True:
+        answer = input('Enter translate: ')
+        if answer == '->':
+            print(word)
+            return False
+        elif answer == word.original:
+            print('right')
+            return True
+        else:
+            print('Wrong. Try again.')
+
+
+def test_list(words, lang='en', random_order=False):
+    if random_order is True:
+        shuffle(words)
+    right = 0
+    if lang == 'en':
+        for word in words:
+            result = test_en_ru(word)
+            if result is True:
+                right += 1
+    elif lang == 'ru':
+        for word in words:
+            result = test_ru_en(word)
+            if result is True:
+                right += 1
+    return right
+
+
+
+
+
+
+
