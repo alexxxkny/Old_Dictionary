@@ -14,6 +14,8 @@ def menu():
 def enter_word():
     original = input('Enter the word: ')
     translate = input('Enter the translates separated by comma: ')
+    # topic = input('Enter topic: ')
+    # kind = input('Enter class of word: ')
     translates = {word.strip() for word in translate.split(',')}
     return Word(original, translates)
 

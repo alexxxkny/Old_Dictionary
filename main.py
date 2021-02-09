@@ -26,7 +26,7 @@ while True:
         while True:
             answer = input('Mode: ').strip()
             if answer == '1':
-                #lang = 'en'
+                #lang = 'en' huuuueeeeetaaaaaaaaa
                 break
             elif answer == '2':
                 lang = 'ru'
