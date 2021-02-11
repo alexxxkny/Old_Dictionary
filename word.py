@@ -6,7 +6,10 @@ class Word:
         self.kind = kind
 
     def __str__(self):
-        return self.original + ' = ' + ', '.join(self.translate) + '\t(' + self.topic + ', ' + self.kind + ')'
+        return self.original + ' = ' + ', '.join(self.translate)
+
+    def info(self):
+        return str(self) + '\t(' + self.topic + ', ' + self.kind + ')'
 
     def make_dict_to_json(self):
         return {'original': self.original, 'translate': list(self.translate), 'topic': self.topic, 'kind': self.kind}

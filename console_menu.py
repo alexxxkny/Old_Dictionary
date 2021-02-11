@@ -12,12 +12,12 @@ def menu():
 
 
 def enter_word():
-    original = input('Enter the word: ')
+    original = input('Enter the word: ').strip()
     translate = input('Enter the translates separated by comma: ')
-    # topic = input('Enter topic: ')
-    # kind = input('Enter class of word: ')
+    topic = input('Enter topic: ').strip()
+    kind = input('Enter class of word: ').strip()
     translates = {word.strip() for word in translate.split(',')}
-    return Word(original, translates)
+    return Word(original, translates, topic, kind)
 
 
 def show_word_list(words):
@@ -30,24 +30,6 @@ def delete_word(words):
     while not (0 < num <= len(words)):
         num = int(input('There is not such number here.\nTry again: '))
     del words[num - 1]
-
-
-def test(words, random_order=False):
-    print('Test:\nWord count: ' + str(len(words)))
-    number = 1
-    if random_order is True:
-        shuffle(words)
-    for word in words:
-        print('#' + str(number), word.original)
-        number += 1
-        answer = input('Enter translates separated by comma: ')
-        if answer == 'stop':
-            return
-        answer_set = {word.strip() for word in answer.split(',')}
-        if answer_set == word.translate:
-            print('right')
-        else:
-            print('wrong')
 
 
 def test_en_ru(word):
@@ -100,6 +82,45 @@ def test_list(words, lang='en', random_order=False):
     return right
 
 
+def get_test_settings(words, topics, kinds):
+    # random_order = False
+    # count = 0
+    # topic = 'all'
+    # kind = 'all'
+    while True:
+        random_order = input('Random order (y/n): ').strip()
+        if random_order == 'y':
+            random_order = True
+            break
+        elif random_order == 'n':
+            random_order = False
+            break
+        else:
+            print('Wrong input. Try again.')
+    while True:
+        count = input('Enter word count: ').strip()
+        if count.isnumeric() is not True:
+            print('Enter number, please.')
+            continue
+        count = int(count)
+        if count <= 0:
+            print('stupid?')
+            continue
+        elif count > len(words):
+            print('There are not so many words. Try less.')
+            continue
+        else:
+            break
+    while True:
+        topic = input('Enter topic name: ').strip()
+        if topic not in topics:
+            pass # HEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE
+    # check if exist
+    kind = input('Enter word class: ').strip()
+    return random_order, count, topic, kind
+
+
+def make_list(words)
 
 
 
