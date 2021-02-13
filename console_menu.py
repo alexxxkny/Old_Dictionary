@@ -65,9 +65,7 @@ def test_ru_en(word):
             print('Wrong. Try again.')
 
 
-def test_list(words, lang='en', random_order=False):
-    if random_order is True:
-        shuffle(words)
+def test_list(words, lang='en'):
     right = 0
     if lang == 'en':
         for word in words:
@@ -83,10 +81,6 @@ def test_list(words, lang='en', random_order=False):
 
 
 def get_test_settings(words, topics, kinds):
-    # random_order = False
-    # count = 0
-    # topic = 'all'
-    # kind = 'all'
     while True:
         random_order = input('Random order (y/n): ').strip()
         if random_order == 'y':
@@ -98,31 +92,64 @@ def get_test_settings(words, topics, kinds):
         else:
             print('Wrong input. Try again.')
     while True:
-        count = input('Enter word count: ').strip()
-        if count.isnumeric() is not True:
-            print('Enter number, please.')
-            continue
-        count = int(count)
-        if count <= 0:
-            print('stupid?')
-            continue
-        elif count > len(words):
-            print('There are not so many words. Try less.')
-            continue
-        else:
-            break
-    while True:
         topic = input('Enter topic name: ').strip()
         if topic not in topics:
-            pass # HEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE
-    # check if exist
-    kind = input('Enter word class: ').strip()
-    return random_order, count, topic, kind
+            print('There is no such topic in the list. Try again.')
+            continue
+        break
+    while True:
+        kind = input('Enter word class name: ').strip()
+        if kind not in kinds:
+            print('There is no such word class in the list. Try again.')
+            continue
+        break
+    return random_order, topic, kind
 
 
-def make_list(words)
+def get_count(actual_len):
+    if actual_len == 0:
+        print('There are no such words.')
+        return 0
+    elif actual_len == 1:
+        return 1
+    else:
+        print('There are', actual_len, 'such words.')
+        while True:
+            count = input('How many would you like to check: ').strip()
+            if count.isnumeric() is False:
+                print('Wrong input. Try again.')
+                continue
+            else:
+                return int(count)
 
 
+def make_list(words, random_order, topic, kind):
+    working_list = [word for word in words if (word.topic == topic or topic == 'all')
+                    and (word.kind == kind or kind == 'all')]
+    if random_order is True:
+        shuffle(working_list)
+    count = get_count(len(working_list))
+    if count == 0:
+        return 0
+    else:
+        return working_list[:count]
 
 
+def choose_mode():
+    print('Choose mode.\n1 - en -> ru\n2 - ru -> en')
+    while True:
+        answer = input('Mode: ').strip()
+        if answer == '1':
+            return 'en'
+        elif answer == '2':
+            return 'ru'
+        else:
+            print('Incorrect input. Try again.')
 
+
+def test(words, topics, kinds):
+    random_order, topic, kind = get_test_settings(words, topics, kinds)
+    working_list = make_list(words, random_order, topic, kind)
+    lang = choose_mode()
+    right = test_list(working_list, lang)
+    return right / len(working_list)
