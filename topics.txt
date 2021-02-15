@@ -1,0 +1,1 @@
+["nature", "tech", "people", "food", "furniture", "clothes", "event", "general"]

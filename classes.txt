@@ -1,0 +1,1 @@
+["verb", "adverb", "noun", "adjective", "expletive", "phrase", "phrasal verb"]

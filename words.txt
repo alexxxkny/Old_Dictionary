@@ -2,8 +2,8 @@
     {
         "original": "purse",
         "translate": [
-            "сумочка",
-            "кошелек"
+            "кошелек",
+            "сумочка"
         ],
         "topic": "clothes",
         "kind": "noun"
@@ -69,9 +69,9 @@
     {
         "original": "careful",
         "translate": [
-            "осторожный",
+            "заботливый",
             "осмотрительный",
-            "заботливый"
+            "осторожный"
         ],
         "topic": "people",
         "kind": "adjective"
@@ -80,8 +80,8 @@
         "original": "pupil",
         "translate": [
             "воспитанник",
-            "зрачок",
-            "ученик"
+            "ученик",
+            "зрачок"
         ],
         "topic": "people",
         "kind": "noun"
@@ -114,8 +114,8 @@
     {
         "original": "shy",
         "translate": [
-            "скромный",
             "стеснительный",
+            "скромный",
             "застенчивый"
         ],
         "topic": "people",
@@ -124,8 +124,8 @@
     {
         "original": "sensitive",
         "translate": [
-            "восприимчивый",
-            "впечатлительный"
+            "впечатлительный",
+            "восприимчивый"
         ],
         "topic": "people",
         "kind": "adjective"
@@ -139,7 +139,7 @@
         "kind": "adjective"
     },
     {
-        "original": "self-cofident",
+        "original": "self-confident",
         "translate": [
             "уверенный в себе",
             "самонадеянный"
@@ -150,8 +150,8 @@
     {
         "original": "pushy",
         "translate": [
-            "бесцеремонный",
             "напористый",
+            "бесцеремонный",
             "наглый"
         ],
         "topic": "people",
@@ -185,8 +185,8 @@
     {
         "original": "sympathetic",
         "translate": [
-            "сочувствующий",
             "понимающий",
+            "сочувствующий",
             "отзывчивый"
         ],
         "topic": "people",
@@ -199,5 +199,58 @@
         ],
         "topic": "furniture",
         "kind": "noun"
+    },
+    {
+        "original": "maid",
+        "translate": [
+            "служанка",
+            "горничная"
+        ],
+        "topic": "people",
+        "kind": "noun"
+    },
+    {
+        "original": "propose",
+        "translate": [
+            "предлагать"
+        ],
+        "topic": "general",
+        "kind": "verb"
+    },
+    {
+        "original": "establish",
+        "translate": [
+            "создавать",
+            "устанавливать"
+        ],
+        "topic": "general",
+        "kind": "verb"
+    },
+    {
+        "original": "provide",
+        "translate": [
+            "предоставлять",
+            "обеспечивать"
+        ],
+        "topic": "general",
+        "kind": "verb"
+    },
+    {
+        "original": "suppose",
+        "translate": [
+            "предполагать",
+            "полагать"
+        ],
+        "topic": "general",
+        "kind": "verb"
+    },
+    {
+        "original": "devote",
+        "translate": [
+            "уделять",
+            "посвятить"
+        ],
+        "topic": "general",
+        "kind": "verb"
     }
 ]

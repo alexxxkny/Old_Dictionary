@@ -93,13 +93,13 @@ def get_test_settings(words, topics, kinds):
             print('Wrong input. Try again.')
     while True:
         topic = input('Enter topic name: ').strip()
-        if topic not in topics:
+        if topic not in topics and topic != 'all':
             print('There is no such topic in the list. Try again.')
             continue
         break
     while True:
         kind = input('Enter word class name: ').strip()
-        if kind not in kinds:
+        if kind not in kinds and topic != 'all':
             print('There is no such word class in the list. Try again.')
             continue
         break
